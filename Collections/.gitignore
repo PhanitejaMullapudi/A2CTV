@@ -1,0 +1,25 @@
+# Node Files #
+/node_modules
+/bower_components
+npm-debug.log
+
+# Coverage #
+/coverage/
+
+#Debugerfiles#
+/Chrome/out
+
+# Typing #
+/src/typings/tsd/
+/typings/
+/tsd_typings/
+
+# Logs
+logs
+*.log
+
+# JS
+*.js
+*.js.map
+
+/out

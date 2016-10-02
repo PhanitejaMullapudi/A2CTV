@@ -1,0 +1,13 @@
+<ul class="tab">
+  <li *ngFor="let tab of tabs" >
+    <div class="tabHeaderdiv">
+      <a href="#" class="tablinks" (click)="onClick($event, tab);">{{tab.name}}</a><button type="button" class="collbtn" (click)="RemoveTab($event,tab)"><i class="fa fa-close"></i></button>
+    </div>
+  </li>
+  <li><a href="#" class="tablinks" (click)="AddTab($event)"><i class="fa collectionAdd"></i></a></li>
+</ul>
+
+<div id="London" class="tabcontent" *ngIf="selectedTab">
+  <h3>{{selectedTab.name}}</h3>
+  <p>You have selected the following tab {{selectedTab.name}}</p>
+</div>
