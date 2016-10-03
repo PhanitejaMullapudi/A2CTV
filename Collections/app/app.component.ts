@@ -9,22 +9,42 @@ export class AppComponent {
 
   tabs = Tabs;
   selectedTab: Tab = Tabs.filter(a => a.isSelected == true)[0];
-  prevTab: Tab;
+  TabtoDelete:Tab;
+  TabtoRename: Tab;
   assetItems: AssetItem[] = Assets;
+  ErrorMessage:string;
+  
+  NewName:string;
+  showConfirm:boolean;
 
-  onClick(ev, STab: Tab) {
-    this.prevTab = this.tabs.filter(a => a.isSelected == true)[0];
+  TabClick(ev, STab: Tab) {
+    let prevTab: Tab;
+    prevTab = this.tabs.filter(a => a.isSelected == true)[0];
 
-    if (this.prevTab != undefined && this.prevTab != null) {
-      this.prevTab.isSelected = false;
+    if (prevTab != undefined && prevTab != null) {
+      prevTab.isSelected = false;
     }
     STab.isSelected = true;
     this.selectedTab = STab;
   }
+  
+  ConfirmDelete(ev, STab: Tab)
+  {
+    this.TabtoDelete = STab;
+  }
 
   RemoveTab(ev, STab: Tab) {
-    this.tabs = this.tabs.filter(function (el) { return el.id != STab.id });
-  }
+    if (this.tabs.length > 1) {
+      this.tabs = this.tabs.filter(function (el) { return el.id != STab.id });
+      this.tabs[0].isSelected = true;
+      this.TabClick(ev, this.tabs[0]);
+    }
+    else
+    {
+      console.log("you alread have minimum number of tabs");
+    }
+    this.TabtoDelete=null;
+  } 
 
   Dragstar(ev, Dasset: AssetItem) {
     this.dragedAsset = Dasset;
@@ -55,11 +75,23 @@ export class AppComponent {
     if (this.tabs.length < 5) {
       let ids: number[] = [];
       this.tabs.forEach(function (el) { ids.push(el.id) });
-      console.log(ids);
       let nxtTabid = this.getFirstSmallestMissingID(ids);
-      console.log(nxtTabid);
+
       this.tabs.push({ id: nxtTabid, Childs: null, hasChilds: false, isSelected: false, name: "Tab " + nxtTabid })
+      this.TabClick(ev, this.tabs[this.tabs.length - 1]);
     }
+  }
+
+  RenameTab(ev, reTab: Tab) {
+    this.TabtoRename = reTab;
+  }
+
+  RenameClose(ev) {
+    this.TabtoRename = null;
+  }
+  ConfirmClose(ev)
+  {
+    this.TabtoDelete = null;
   }
 
   getFirstSmallestMissingID(arr: number[]) {
