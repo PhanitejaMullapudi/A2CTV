@@ -8,6 +8,7 @@ export class AppComponent {
   tabs = Tabs;
   selectedTab: Tab = Tabs.filter(a => a.isSelected == true)[0];
   prevTab: Tab;
+  assetItems:AssetItem[] =Assets; 
 
   onClick(ev, STab: Tab) {
     this.prevTab = this.tabs.filter(a => a.isSelected == true)[0];
@@ -60,13 +61,14 @@ export class Tab {
   id: number;
   name: string;
   isSelected: boolean;
-  Childs: tabItems[];
+  Childs: AssetItem[];
   hasChilds: boolean;
 }
 
-export class tabItems {
+export class AssetItem {
   id: number;
   name: string;
+  AssetImageURl: string;
 }
 
 
@@ -77,4 +79,13 @@ const Tabs: Tab[] = [
   { id: 4, name: 'Tab 4', isSelected: false, hasChilds: false, Childs: null },
   { id: 5, name: 'Tab 5', isSelected: false, hasChilds: false, Childs: null },
 ];
+
+const Assets: AssetItem[] = [
+  { id: 1, name: 'Asset 1',AssetImageURl:'./images/asset.jpg'},
+  { id: 2, name: 'Asset 2',AssetImageURl:'./images/asset.jpg'},
+  { id: 3, name: 'Asset 3',AssetImageURl:'./images/asset.jpg'},
+  { id: 4, name: 'Asset 4',AssetImageURl:'./images/asset.jpg'},
+  { id: 5, name: 'Asset 5',AssetImageURl:'./images/asset.jpg'},
+];
+
 

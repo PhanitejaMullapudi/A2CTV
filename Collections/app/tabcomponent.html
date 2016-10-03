@@ -1,13 +1,26 @@
-<ul class="tab">
-  <li *ngFor="let tab of tabs" >
-    <div class="tabHeaderdiv">
-      <a href="#" class="tablinks" (click)="onClick($event, tab);">{{tab.name}}</a><button type="button" class="collbtn" (click)="RemoveTab($event,tab)"><i class="fa fa-close"></i></button>
+<div class="W100per">
+  <div class="assetImage" *ngFor="let item of assetItems">
+    <img src="{{item.AssetImageURl}}" alt="Norway"  style="width:100%;">
+    <div class="assetImageText">
+      <p>{{item.name}}</p>
     </div>
-  </li>
-  <li><a href="#" class="tablinks" (click)="AddTab($event)"><i class="fa collectionAdd"></i></a></li>
-</ul>
+  </div>
+</div>
 
-<div id="London" class="tabcontent" *ngIf="selectedTab">
-  <h3>{{selectedTab.name}}</h3>
-  <p>You have selected the following tab {{selectedTab.name}}</p>
+<div class="clearBoth H10px">&nbsp;</div>
+<div class="FL W100per">
+  <ul class="tab ">
+    <li *ngFor="let tab of tabs">
+      <div class="tabHeaderdiv">
+        <a href="#" class="tablinks" (click)="onClick($event, tab);">{{tab.name}}</a><button type="button" class="collbtn"
+          (click)="RemoveTab($event,tab)"><i class="fa fa-close"></i></button>
+      </div>
+    </li>
+    <li><a href="#" class="tablinks" (click)="AddTab($event)"><i class="fa collectionAdd"></i></a></li>
+  </ul>
+
+  <div id="London" class="tabcontent" *ngIf="selectedTab">
+    <h3>{{selectedTab.name}}</h3>
+    <p>You have selected the following tab {{selectedTab.name}}</p>
+  </div>
 </div>

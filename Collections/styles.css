@@ -62,3 +62,39 @@ ul.tab li:hover {background-color: #ddd;}
   font-size: 20px;
   content: "\f067"
 }
+.clearBoth{
+  clear: both
+}
+.FL
+{
+  float: left
+}
+.FR
+{
+  float: right;
+}
+.W100per
+{
+  width:100%;
+}
+.H10px
+{
+  height: 10px;
+}
+
+
+div.assetImage {
+  width: 150px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: 25px;
+  float: left
+}
+
+div.assetImageText {
+  text-align: center;
+  padding: 10px 20px;
+}
+.assetImageText p{
+  margin: 5px;
+}
