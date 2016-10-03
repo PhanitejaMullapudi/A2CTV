@@ -5,10 +5,12 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
+  dragedAsset: AssetItem;
+
   tabs = Tabs;
   selectedTab: Tab = Tabs.filter(a => a.isSelected == true)[0];
   prevTab: Tab;
-  assetItems:AssetItem[] =Assets; 
+  assetItems: AssetItem[] = Assets;
 
   onClick(ev, STab: Tab) {
     this.prevTab = this.tabs.filter(a => a.isSelected == true)[0];
@@ -24,14 +26,39 @@ export class AppComponent {
     this.tabs = this.tabs.filter(function (el) { return el.id != STab.id });
   }
 
+  Dragstar(ev, Dasset: AssetItem) {
+    this.dragedAsset = Dasset;
+    console.log(Dasset);
+  }
+
+  AssetDroped(ev) {
+    if (this.dragedAsset != null) {
+      if (this.selectedTab.Childs == null || this.selectedTab.Childs == undefined) {
+        this.selectedTab.Childs = [];
+        this.selectedTab.hasChilds = true;
+        this.selectedTab.Childs.push(this.dragedAsset);
+      }
+      else {
+        this.selectedTab.Childs.push(this.dragedAsset);
+      }
+    }
+
+    this.dragedAsset = null;
+    ev.preventDefault();
+  }
+
+  allowDrop(ev) {
+    ev.preventDefault();
+  }
+
   AddTab(ev) {
     if (this.tabs.length < 5) {
-      let ids: number[]= [];
+      let ids: number[] = [];
       this.tabs.forEach(function (el) { ids.push(el.id) });
       console.log(ids);
       let nxtTabid = this.getFirstSmallestMissingID(ids);
       console.log(nxtTabid);
-      this.tabs.push({id:nxtTabid,Childs:null,hasChilds:false,isSelected:false,name:"Tab "+nxtTabid})
+      this.tabs.push({ id: nxtTabid, Childs: null, hasChilds: false, isSelected: false, name: "Tab " + nxtTabid })
     }
   }
 
@@ -81,11 +108,11 @@ const Tabs: Tab[] = [
 ];
 
 const Assets: AssetItem[] = [
-  { id: 1, name: 'Asset 1',AssetImageURl:'./images/asset.jpg'},
-  { id: 2, name: 'Asset 2',AssetImageURl:'./images/asset.jpg'},
-  { id: 3, name: 'Asset 3',AssetImageURl:'./images/asset.jpg'},
-  { id: 4, name: 'Asset 4',AssetImageURl:'./images/asset.jpg'},
-  { id: 5, name: 'Asset 5',AssetImageURl:'./images/asset.jpg'},
+  { id: 1, name: 'Asset 1', AssetImageURl: './images/asset.jpg' },
+  { id: 2, name: 'Asset 2', AssetImageURl: './images/asset.jpg' },
+  { id: 3, name: 'Asset 3', AssetImageURl: './images/asset.jpg' },
+  { id: 4, name: 'Asset 4', AssetImageURl: './images/asset.jpg' },
+  { id: 5, name: 'Asset 5', AssetImageURl: './images/asset.jpg' },
 ];
 
 

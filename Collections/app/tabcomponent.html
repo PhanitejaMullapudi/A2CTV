@@ -1,6 +1,6 @@
 <div class="W100per">
-  <div class="assetImage" *ngFor="let item of assetItems">
-    <img src="{{item.AssetImageURl}}" alt="Norway"  style="width:100%;">
+  <div class="assetImage" *ngFor="let item of assetItems" draggable="true" (dragstart)="Dragstar($event,item)">
+    <img src="{{item.AssetImageURl}}" alt="Norway" style="width:100%;">
     <div class="assetImageText">
       <p>{{item.name}}</p>
     </div>
@@ -9,7 +9,7 @@
 
 <div class="clearBoth H10px">&nbsp;</div>
 <div class="FL W100per">
-  <ul class="tab ">
+  <ul class="tab">
     <li *ngFor="let tab of tabs">
       <div class="tabHeaderdiv">
         <a href="#" class="tablinks" (click)="onClick($event, tab);">{{tab.name}}</a><button type="button" class="collbtn"
@@ -19,8 +19,14 @@
     <li><a href="#" class="tablinks" (click)="AddTab($event)"><i class="fa collectionAdd"></i></a></li>
   </ul>
 
-  <div id="London" class="tabcontent" *ngIf="selectedTab">
-    <h3>{{selectedTab.name}}</h3>
-    <p>You have selected the following tab {{selectedTab.name}}</p>
+  <div id="London" class="tabcontent FL W100per" *ngIf="selectedTab" (dragover)="allowDrop($event)" (drop)="AssetDroped($event)">
+    <div *ngIf="selectedTab.hasChilds==true" class="clearBoth">
+      <div class="assetImage" *ngFor="let child of selectedTab.Childs">
+        <img src="{{child.AssetImageURl}}" alt="Norway" style="width:100%;">
+        <div class="assetImageText">
+          <p>{{child.name}}</p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
