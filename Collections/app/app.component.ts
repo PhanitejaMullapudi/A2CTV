@@ -9,13 +9,47 @@ export class AppComponent {
 
   tabs = Tabs;
   selectedTab: Tab = Tabs.filter(a => a.isSelected == true)[0];
-  TabtoDelete:Tab;
+  TabtoDelete: Tab;
   TabtoRename: Tab;
   assetItems: AssetItem[] = Assets;
-  ErrorMessage:string;
+  ErrorMessage: string;
+
+  NewName: string;
+  showConfirm: boolean;
+
   
-  NewName:string;
-  showConfirm:boolean;
+  /****************Drag and Drop Methods*******************/
+  /********************************************************/
+  
+   Dragstar(ev, Dasset: AssetItem) {
+    this.dragedAsset = Dasset;
+  }
+
+  AssetDroped(ev) {
+    if (this.dragedAsset != null) {
+      if (this.selectedTab.Childs == null || this.selectedTab.Childs == undefined) {
+        this.selectedTab.Childs = [];
+        this.selectedTab.hasChilds = true;
+        this.selectedTab.Childs.push(this.dragedAsset);
+      }
+      else if(this.selectedTab.Childs.findIndex(a => a.id == this.dragedAsset.id) == -1) {
+        this.selectedTab.Childs.push(this.dragedAsset);
+      }
+      else{
+        console.log("Asset already exists");
+      }
+    }
+
+    this.dragedAsset = null;
+    ev.preventDefault();
+  }
+
+  allowDrop(ev) {
+    ev.preventDefault();
+  }
+ 
+/******************** Click Methods **********************/
+/********************************************************/
 
   TabClick(ev, STab: Tab) {
     let prevTab: Tab;
@@ -27,48 +61,17 @@ export class AppComponent {
     STab.isSelected = true;
     this.selectedTab = STab;
   }
-  
-  ConfirmDelete(ev, STab: Tab)
-  {
-    this.TabtoDelete = STab;
-  }
 
-  RemoveTab(ev, STab: Tab) {
+ RemoveTab(ev, STab: Tab) {
     if (this.tabs.length > 1) {
       this.tabs = this.tabs.filter(function (el) { return el.id != STab.id });
       this.tabs[0].isSelected = true;
       this.TabClick(ev, this.tabs[0]);
     }
-    else
-    {
+    else {
       console.log("you alread have minimum number of tabs");
     }
-    this.TabtoDelete=null;
-  } 
-
-  Dragstar(ev, Dasset: AssetItem) {
-    this.dragedAsset = Dasset;
-    console.log(Dasset);
-  }
-
-  AssetDroped(ev) {
-    if (this.dragedAsset != null) {
-      if (this.selectedTab.Childs == null || this.selectedTab.Childs == undefined) {
-        this.selectedTab.Childs = [];
-        this.selectedTab.hasChilds = true;
-        this.selectedTab.Childs.push(this.dragedAsset);
-      }
-      else {
-        this.selectedTab.Childs.push(this.dragedAsset);
-      }
-    }
-
-    this.dragedAsset = null;
-    ev.preventDefault();
-  }
-
-  allowDrop(ev) {
-    ev.preventDefault();
+    this.TabtoDelete = null;
   }
 
   AddTab(ev) {
@@ -82,6 +85,13 @@ export class AppComponent {
     }
   }
 
+/********************** PopUp Methods ********************/
+/********************************************************/
+
+  ConfirmDelete(ev, STab: Tab) {
+    this.TabtoDelete = STab;
+  }
+
   RenameTab(ev, reTab: Tab) {
     this.TabtoRename = reTab;
   }
@@ -89,12 +99,14 @@ export class AppComponent {
   RenameClose(ev) {
     this.TabtoRename = null;
   }
-  ConfirmClose(ev)
-  {
+
+  ConfirmClose(ev) {
     this.TabtoDelete = null;
   }
 
-  getFirstSmallestMissingID(arr: number[]) {
+/********************* Private Methods *******************/
+/********************************************************/
+  private getFirstSmallestMissingID(arr: number[]) {
     for (let i = 0; i < arr.length; i++) {
       let j = arr[i] - 1;
 
@@ -114,6 +126,7 @@ export class AppComponent {
     }
     return arr.length + 1;
   }
+  
 }
 
 export class Tab {
