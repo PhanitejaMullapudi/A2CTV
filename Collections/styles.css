@@ -4,22 +4,19 @@ h1 {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 250%;
 }
+
 h2, h3 {
   color: #444;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: lighter;
 }
-body {
-  margin: 2em;
-}
+
 /* Style the list */
 ul.tab {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
 }
 
 /* Float the list items side by side */
@@ -28,7 +25,7 @@ ul.tab li {float: left;}
 /* Style the links inside the list items */
 ul.tab li a {
     display: inline-block;
-    color: black;
+    color: mintcream;
     text-align: center;
     text-decoration: none;
     transition: 0.3s;
@@ -37,20 +34,13 @@ ul.tab li a {
 }
 
 /* Change background color of links on hover */
-ul.tab li:hover {background-color: #ddd;}
+ul.tab li:hover {background-color: #2B2B28;}
 
 /* Create an active/current tablink class */
-.active {background-color: #ccc;}
+.active {background-color: #2B2B28;}
 
 /* Style the tab content */
-.tabcontent {
-  margin: 0;
-    padding: 0;
-    border: 1px solid #ccc;
-    border-top: none;
-    float:left;
-    min-height: 150px;
-}
+
 .tabHeaderdiv
 {
   text-align: left;
@@ -58,6 +48,9 @@ ul.tab li:hover {background-color: #ddd;}
 .collbtn
 {
   padding: 1px 1px;
+  background-color: #2B2B28;
+  border: 0px;
+  color: mintcream;
 }
 
 .collectionAdd:before
@@ -88,7 +81,7 @@ ul.tab li:hover {background-color: #ddd;}
 
 div.assetImage {
   width: 150px;
-  background-color: white;
+  background-color: transparent;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin: 10px;
   float: left
@@ -158,4 +151,72 @@ div.assetImageText {
 {
     border-radius: 4px;
     padding: 5px 10px;
+}
+.emptyRow
+{
+  clear: both;
+  height: 10px;
+}
+
+/*pannel css*/
+
+.panel {
+  margin-bottom: 20px;
+  background-color: #7A7974;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.panel-body {
+  min-height: 150px;
+  background-color:#2B2B28; 
+}
+
+.panel-heading {
+  border-bottom: 1px solid transparent;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
+
+.panel-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 16px;
+  color: inherit;
+}
+
+.panel-title > a,
+.panel-title > small,
+.panel-title > .small,
+.panel-title > small > a,
+.panel-title > .small > a {
+  color: inherit;
+}
+
+.panel-footer {
+  padding: 10px 15px;
+  background-color: #f5f5f5;
+  border-top: 1px solid #dddddd;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+.panel-default {
+  border-color: #dddddd;
+}
+.panel-default > .panel-heading {
+  color: #333333;
+  background-color: #524B50;
+  border-color: #dddddd;
+}
+.panel-default >  .panel-body {
+  border-top-color: #dddddd;
+}
+.panel-default > .panel-heading .badge {
+  color: #f5f5f5;
+  background-color: #333333;
+}
+.panel-default > .panel-footer + .panel-collapse > .panel-body {
+  border-bottom-color: #dddddd;
 }

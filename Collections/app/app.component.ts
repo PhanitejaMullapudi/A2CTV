@@ -126,7 +126,7 @@ export class AppComponent {
     }
     return arr.length + 1;
   }
-  
+
 }
 
 export class Tab {
