@@ -1,15 +1,4 @@
-/* Master Styles */
-h1 {
-  color: #369;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 250%;
-}
-
-h2, h3 {
-  color: #444;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: lighter;
-}
+/***********************Tab Styles**********************/
 
 /* Style the list */
 ul.tab {
@@ -21,8 +10,6 @@ ul.tab {
 
 /* Float the list items side by side */
 ul.tab li {float: left;
-background-color:#554B44; 
-margin-right:15px;
 margin-left:10px;
 }
 
@@ -34,39 +21,61 @@ ul.tab li a {
     text-decoration: none;
     transition: 0.3s;
     font-size: 17px;
-    padding: 14px 16px;
+    padding:5px 15px; 
     border-radius: 4px 4px 0 0;
-    background-color:#554B44;
 }
 
 /* Change background color of links on hover */
-ul.tab li a:hover {background-color: #554B44;}
-ul.tab li:hover {background-color: #554B44;}
+/*ul.tab li a:hover {}*/
 
 /* Create an active/current tablink class */
-.active {background-color: #2B2B28;}
 
 /* Style the tab content */
 
 .tabHeaderdiv
 {
   text-align: left;
+  border-radius: 4px 4px 0 0;
+  border: 1px transparent;
+  margin-top:20px; 
+  background-color: #665d56;
+}
+
+.active{
+
+  text-align: left;
+  border-radius: 4px 4px 0 0;
+  border: 1px transparent;
+  margin-top:20px; 
+  background-color: #2B2B28;
+}
+.active > .collbtn
+{
+  background-color: #665d56;
+  border: 1px transparent;
+  color: mintcream;
+  margin-right: 5px;
+  padding: 3px 3px;
+  border-radius: 3px;
 }
 .collbtn
 {
-  padding: 1px 1px;
-  background-color: #554B44;
-  border: 0px;
+  background-color: #2B2B28;
+  border: 1px transparent;
   color: mintcream;
+  margin-right: 5px;
+  padding: 3px 3px;
+  border-radius: 3px;
 }
 .collectionAdd{
   color: #FFFFFF;
-  font-size: 12px;
+  font-size: 9px !important;
 }
 .collectionAdd:before
 {
   content: "\f067"
 }
+/**********************************Generanl Styles********************************/
 .clearBoth{
   clear: both
 }
@@ -86,25 +95,15 @@ ul.tab li:hover {background-color: #554B44;}
 {
   height: 10px;
 }
-
-
-div.assetImage {
-  width: 150px;
-  background-color: transparent;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  margin: 10px;
-  float: left
+.emptyRow
+{
+  clear: both;
+  height: 10px;
 }
 
-div.assetImageText {
-  text-align: center;
-  padding: 10px 20px;
-}
-.assetImageText p{
-  margin: 5px;
-}
 
-/*PopUp Styles*/
+
+/*******************************PopUp Styles**********************************/
 .ReNamemodal {
     display: block; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -161,32 +160,31 @@ div.assetImageText {
     border-radius: 4px;
     padding: 5px 10px;
 }
-.emptyRow
-{
-  clear: both;
-  height: 10px;
-}
 
-/*pannel css*/
+
+/**********************pannel css*********************************/
 
 .panel {
   margin-bottom: 20px;
   background-color: #555352;
-  border: 1px solid transparent;
+  border: 1px solid #666A72;
   border-radius: 4px;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 }
 
 .panel-body {
-  min-height: 150px;
+  min-height: 170px;
   background-color:#2B2B28; 
 }
 
 .panel-heading {
-  border-bottom: 1px solid transparent;
+  border-bottom: 1px solid #666A72;
   border-top-right-radius: 3px;
   border-top-left-radius: 3px;
+  -webkit-box-shadow: inset 0px -15px 5px -7px rgba(86,86,82,1);
+-moz-box-shadow: inset 0px -15px 5px -7px rgba(86,86,82,1);
+box-shadow: inset 0px -15px 5px -7px rgba(86,86,82,1);
 }
 
 .panel-title {
@@ -212,12 +210,15 @@ div.assetImageText {
   border-bottom-left-radius: 3px;
 }
 .panel-default {
-  border-color: #dddddd;
+  border-color: #666A72;
 }
 .panel-default > .panel-heading {
   color: #333333;
   background-color: #524B50;
-  border-color: #dddddd;
+  border-color: #666A72;
+  -webkit-box-shadow: inset 0px -15px 5px -7px rgba(86,86,82,1);
+-moz-box-shadow: inset 0px -15px 5px -7px rgba(86,86,82,1);
+box-shadow: inset 0px -15px 5px -7px rgba(86,86,82,1);
 }
 .panel-default >  .panel-body {
   border-top-color: #dddddd;
@@ -229,3 +230,41 @@ div.assetImageText {
 .panel-default > .panel-footer + .panel-collapse > .panel-body {
   border-bottom-color: #dddddd;
 }
+/**********************Colledted Assest css*********************************/
+
+div.CassetImage {
+  width: 150px;
+  background-color: transparent;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: 10px;
+  float: left
+}
+
+div.CassetImageText {
+  text-align: center;
+  padding: 10px 20px;
+}
+.CassetImageText p{
+  margin: 5px;
+  color:#ffffff;
+}
+
+/**********************Colledted Assest css*********************************/
+
+div.assetImage {
+  width: 150px;
+  background-color: transparent;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: 10px;
+  float: left
+}
+
+div.assetImageText {
+  text-align: center;
+  padding: 10px 20px;
+}
+.assetImageText p{
+  margin: 5px;
+  color:#000000;
+}
+

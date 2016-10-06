@@ -31,13 +31,15 @@ export class AppComponent {
         this.selectedTab.Childs = [];
         this.selectedTab.hasChilds = true;
         this.selectedTab.Childs.push(this.dragedAsset);
+        this.selectedTab.coutnOfChilds =this.selectedTab.Childs.length;
       }
       else if(this.selectedTab.Childs.findIndex(a => a.id == this.dragedAsset.id) == -1) {
         this.selectedTab.Childs.push(this.dragedAsset);
+        this.selectedTab.coutnOfChilds =this.selectedTab.Childs.length; 
       }
       else{
         console.log("Asset already exists");
-      }
+      } 
     }
 
     this.dragedAsset = null;
@@ -80,7 +82,7 @@ export class AppComponent {
       this.tabs.forEach(function (el) { ids.push(el.id) });
       let nxtTabid = this.getFirstSmallestMissingID(ids);
 
-      this.tabs.push({ id: nxtTabid, Childs: null, hasChilds: false, isSelected: false, name: "Tab " + nxtTabid })
+      this.tabs.push({ id: nxtTabid, Childs: null, hasChilds: false, isSelected: false, name: "Tab " + nxtTabid,coutnOfChilds:0 })
       this.TabClick(ev, this.tabs[this.tabs.length - 1]);
     }
   }
@@ -135,6 +137,7 @@ export class Tab {
   isSelected: boolean;
   Childs: AssetItem[];
   hasChilds: boolean;
+  coutnOfChilds:number;
 }
 
 export class AssetItem {
@@ -145,11 +148,11 @@ export class AssetItem {
 
 
 const Tabs: Tab[] = [
-  { id: 1, name: 'Tab 1', isSelected: true, hasChilds: false, Childs: null },
-  { id: 2, name: 'Tab 2', isSelected: false, hasChilds: false, Childs: null },
-  { id: 3, name: 'Tab 3', isSelected: false, hasChilds: false, Childs: null },
-  { id: 4, name: 'Tab 4', isSelected: false, hasChilds: false, Childs: null },
-  { id: 5, name: 'Tab 5', isSelected: false, hasChilds: false, Childs: null },
+  { id: 1, name: 'Tab 1', isSelected: true, hasChilds: false, Childs: null ,coutnOfChilds:0},
+  { id: 2, name: 'Tab 2', isSelected: false, hasChilds: false, Childs: null, coutnOfChilds: 0},
+  { id: 3, name: 'Tab 3', isSelected: false, hasChilds: false, Childs: null ,coutnOfChilds:0},
+  { id: 4, name: 'Tab 4', isSelected: false, hasChilds: false, Childs: null ,coutnOfChilds:0},
+  { id: 5, name: 'Tab 5', isSelected: false, hasChilds: false, Childs: null ,coutnOfChilds:0},
 ];
 
 const Assets: AssetItem[] = [

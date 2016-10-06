@@ -2,7 +2,7 @@
   <div class="assetImage" *ngFor="let item of assetItems" draggable="true" (dragstart)="Dragstar($event,item)">
     <img src="{{item.AssetImageURl}}" alt="Norway" style="width:100%;">
     <div class="assetImageText">
-      <p>{{item.name}}</p>
+      <p>{{item.name }}</p>
     </div>
   </div>
 </div>
@@ -11,19 +11,19 @@
   <div class="panel-heading">
     <ul class="tab">
       <li *ngFor="let tab of tabs">
-        <!--<div class="tabHeaderdiv">-->
-          <a href="#" class="tablinks" (click)="TabClick($event, tab);" (dblclick)="RenameTab($event, tab)">{{tab.name}}</a>
+        <div class="tabHeaderdiv" [class.active]="tab==selectedTab">
+          <a href="#" class="tablinks" (click)="TabClick($event, tab);" (dblclick)="RenameTab($event, tab)">{{tab.name + ' ('+tab.coutnOfChilds+')'}}</a>
           <button type="button" class="collbtn" (click)="ConfirmDelete($event, tab)"><i class="fa fa-close"></i></button>
-        <!--</div>-->
+        </div>
       </li>
-      <li><a href="javascript:void(0);" class="tablinks" (click)="AddTab($event)"><i class="fa collectionAdd"></i></a></li>
+      <li><div class="tabHeaderdiv"><a href="javascript:void(0);" class="tablinks" (click)="AddTab($event)"><i class="fa collectionAdd"></i>&nbsp;</a></div></li>
     </ul>
   </div>
   <div class="panel-body FL W100per" *ngIf="selectedTab" (dragover)="allowDrop($event)" (drop)="AssetDroped($event)">
     <div>
-      <div class="assetImage" *ngFor="let child of selectedTab.Childs">
+      <div class="CassetImage" *ngFor="let child of selectedTab.Childs">
         <img src="{{child.AssetImageURl}}" alt="Norway" style="width:100%;">
-        <div class="assetImageText">
+        <div class="CassetImageText">
           <p>{{child.name}}</p>
         </div>
       </div>
