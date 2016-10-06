@@ -7,7 +7,7 @@
   </div>
 </div>
 <div class="clearBoth H10px">&nbsp;</div>
-<div class="panel panel-default FL W100per">
+<div class="panel panel-default FL W1000">
   <div class="panel-heading">
     <ul class="tab">
       <li *ngFor="let tab of tabs">
@@ -21,8 +21,8 @@
       </li>
     </ul>
   </div>
-  <div class="panel-body FL W100per" *ngIf="selectedTab" (dragover)="allowDrop($event)" (drop)="AssetDroped($event)">
-    <div>
+  <div class="panel-body FL W1000" *ngIf="selectedTab" (dragover)="allowDrop($event)" (drop)="AssetDroped($event)">
+    <div class="W1000 HorLayout">
       <div class="CassetImage" *ngFor="let child of selectedTab.Childs">
         <img src="{{child.AssetImageURl}}" alt="Norway" style="width:100%;">
         <div class="CassetImageText">
