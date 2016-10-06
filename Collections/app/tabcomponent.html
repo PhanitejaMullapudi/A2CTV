@@ -16,7 +16,9 @@
           <button type="button" class="collbtn" (click)="ConfirmDelete($event, tab)"><i class="fa fa-close"></i></button>
         </div>
       </li>
-      <li><div class="tabHeaderdiv"><a href="javascript:void(0);" class="tablinks" (click)="AddTab($event)"><i class="fa collectionAdd"></i>&nbsp;</a></div></li>
+      <li>
+        <div class="tabHeaderdiv"><a href="javascript:void(0);" class="tablinks" (click)="AddTab($event)"><i class="fa collectionAdd"></i>&nbsp;</a></div>
+      </li>
     </ul>
   </div>
   <div class="panel-body FL W100per" *ngIf="selectedTab" (dragover)="allowDrop($event)" (drop)="AssetDroped($event)">
@@ -34,23 +36,44 @@
 <div id="myModal" class="ReNamemodal" *ngIf="TabtoRename">
   <!-- Modal content -->
   <div class="modal-content">
-    <span class="close" (click)="RenameClose($event)">×</span>
-    <div>
-      <label for="txtNewName">New Name</label>
-      <input type="text" id="txtNewName" class="txtbox">
+    <div class="panel panel-popup FL W100per">
+      <div class="panel-heading FL W100per"> <label class="panel-title">Collection Rename</label></div>
+      <div class="panel-body FL W100per">
+        <div class="PT20 PL20">
+          <label for="txtNewName">Please enter Collection Name</label>
+        </div>
+        <div class="P10 PL20">
+          <input type="text" id="txtNewName" class="txtbox">
+        </div>
+        <div class="P10">
+          <hr>
+        </div>
+        <div class="P10">
+          <div class="FR"><button type="button" class="" (click)="RenameClose($event)">Close</button></div>
+          <div class="FR PR10"><button type="button" class="">Ok</button></div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
+
+
 
 
 <div class="ConfirmModel" *ngIf="TabtoDelete">
   <!-- Modal content -->
   <div class="modal-content">
-    confirm delete
-    <div>
-      <button type="button" (click)="RemoveTab($event, TabtoDelete)">ok</button>
-      <button type="button" (click)="ConfirmClose($event)">cancel</button>
+    <div class="panel panel-popup FL W400">
+      <div class="panel-heading FL W100per"> <label class="panel-title">Delete Confirmation</label></div>
+      <div class="panel-body FL W100per">
+        <div class="P20">
+          <label>Are you sure you want to delete this collection?</label>
+        </div>
+        <div class="P10 PL20">
+          <div class="FL PR10"><button type="button" class="" (click)="RemoveTab($event, TabtoDelete)">Ok</button></div>
+          <div class="FL"><button type="button" class="" (click)="ConfirmClose($event)">Close</button></div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-
