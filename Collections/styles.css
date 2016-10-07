@@ -73,7 +73,7 @@ ul.tab li a {
 }
 .collectionAdd:before
 {
-  content: "\f067"
+  content: "\f067";
 }
 /**********************************Generanl Styles********************************/
 .clearBoth{
@@ -375,4 +375,8 @@ background: -o-linear-gradient(top, #989285 0%, #989285 49%, #7a7160 50%, #7a716
 background: -ms-linear-gradient(top, #989285 0%, #989285 49%, #7a7160 50%, #7a7160 100%);
 background: linear-gradient(to bottom, #989285 0%, #989285 49%, #7a7160 50%, #7a7160 100%);
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#989285', endColorstr='#7a7160', GradientType=0 );
+}
+.errorMsg
+{
+  color: #B67B41;
 }

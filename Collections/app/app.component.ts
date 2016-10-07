@@ -38,7 +38,7 @@ export class AppComponent {
         this.selectedTab.coutnOfChilds =this.selectedTab.Childs.length; 
       }
       else{
-        console.log("Asset already exists");
+        this.ErrorMessage="Asset already exists in "+this.selectedTab.name;
       } 
     }
 
@@ -56,7 +56,7 @@ export class AppComponent {
   TabClick(ev, STab: Tab) {
     let prevTab: Tab;
     prevTab = this.tabs.filter(a => a.isSelected == true)[0];
-
+    this.ErrorMessage = "";
     if (prevTab != undefined && prevTab != null) {
       prevTab.isSelected = false;
     }
@@ -71,12 +71,13 @@ export class AppComponent {
       this.TabClick(ev, this.tabs[0]);
     }
     else {
-      console.log("you alread have minimum number of tabs");
+      this.ErrorMessage="you alread have minimum number of tabs";
     }
     this.TabtoDelete = null;
   }
 
   AddTab(ev) {
+    this.ErrorMessage = "";
     if (this.tabs.length < 5) {
       let ids: number[] = [];
       this.tabs.forEach(function (el) { ids.push(el.id) });
