@@ -10,16 +10,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
-var accordion_example_1 = require('./accordion-example');
-var accordion_1 = require('./accordion');
+var app_component_1 = require('./app.component');
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule],
-            declarations: [accordion_example_1.Angular2Accordion, accordion_1.Accordion, accordion_1.AccordionGroup],
-            bootstrap: [accordion_example_1.Angular2Accordion]
+            declarations: [app_component_1.AppComponent],
+            bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])
     ], AppModule);
