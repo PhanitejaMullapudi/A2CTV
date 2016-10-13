@@ -1,0 +1,20 @@
+ <p>
+                  <button type="button" class="btn btn-default" (click)="removeAngular2AccordionGroup()">
+                    Remove a group from the dynamic content!
+                  </button>
+                   <button type="button" class="btn btn-default" (click)="addAngular2AccordionGroup()">
+                    Add Content!
+                  </button>
+                </p>
+
+                <accordion>
+                  <accordion-group heading="First Group Header " isGroupOpen="true">
+                    Introduction
+                  </accordion-group>
+                  <accordion-group [heading]="group.heading" *ngFor="let group of groups">
+                    {{group.content}}
+                  </accordion-group>
+                  <accordion-group heading="Last Group Header" isGroupOpen="true">
+                    Additional Information
+                  </accordion-group>
+                </accordion>

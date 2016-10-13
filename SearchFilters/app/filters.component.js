@@ -9,20 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var platform_browser_1 = require('@angular/platform-browser');
-var filters_component_1 = require('./filters.component');
-var AppModule = (function () {
-    function AppModule() {
+var FilterComponent = (function () {
+    function FilterComponent() {
     }
-    AppModule = __decorate([
-        core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule],
-            declarations: [filters_component_1.FilterComponent],
-            bootstrap: [filters_component_1.FilterComponent]
+    FilterComponent = __decorate([
+        core_1.Component({
+            selector: 'my-app',
+            template: '<h1>My First Angular App</h1>'
         }), 
         __metadata('design:paramtypes', [])
-    ], AppModule);
-    return AppModule;
+    ], FilterComponent);
+    return FilterComponent;
 }());
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+exports.FilterComponent = FilterComponent;
+//# sourceMappingURL=filters.component.js.map
