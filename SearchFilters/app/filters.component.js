@@ -13,6 +13,19 @@ var FilterComponent = (function () {
     function FilterComponent() {
         this.categories = CategoriesDB;
     }
+    FilterComponent.prototype.ClearFilters = function () {
+        try {
+            this.categories.forEach(function (el) {
+                if (el.Items != null) {
+                    el.Items.forEach(function (item) { item.ischecked = false; });
+                }
+            });
+            console.log("called");
+        }
+        catch (Error) {
+            console.log(Error.message);
+        }
+    };
     FilterComponent = __decorate([
         core_1.Component({
             selector: 'my-app',

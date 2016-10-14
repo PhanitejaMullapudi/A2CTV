@@ -5,6 +5,23 @@ import { Component } from '@angular/core';
 })
 export class FilterComponent {
   categories: Category[] = CategoriesDB;
+  ClearFilters() {
+    try {
+      this.categories.forEach(
+        function (el) {
+          if (el.Items != null) {
+            el.Items.forEach(function (item) { item.ischecked = false });
+          }
+        });
+        console.log("called");
+    }
+    catch(Error)
+    {
+      console.log(Error.message);
+    }
+    
+  }
+
 }
 
 
