@@ -33,7 +33,7 @@ export class AppComponent {
         this.selectedTab.Childs.push(this.dragedAsset);
         this.selectedTab.coutnOfChilds =this.selectedTab.Childs.length;
       }
-      else if(this.selectedTab.Childs.findIndex(a => a.id == this.dragedAsset.id) == -1) {
+      else if(this.selectedTab.Childs.findIndex(a => a.id == this.dragedAsset.id) != -1) {
         this.selectedTab.Childs.push(this.dragedAsset);
         this.selectedTab.coutnOfChilds =this.selectedTab.Childs.length; 
       }
