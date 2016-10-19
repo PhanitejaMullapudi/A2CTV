@@ -1,18 +1,18 @@
-<div class="panel panel-filter FL W1000">
-	<div class="panel-heading FL W1000">
+<div class="FilterSrchPnl">
+	<div class="FileterSrchPnlHeading">
 		<div class="P10 FL"><label>Filter Search</label></div>
-		<div class="P5 FR"><button type="button" class="filterbtn">Close</button></div>
-		<div class="P5 FR"><button type="button" class="filterbtn" (click)="ClearFilters()">Clear</button></div>
+		<div class="FilterSrchBtns"><button type="button" class="filterbtn">Close</button></div>
+		<div class="FilterSrchBtns"><button type="button" class="filterbtn" (click)="ClearFilters()">Clear</button></div>
 	</div>
-	<div class="panel-body FL W1000">
+	<div class="FileterSrchPnlBody">
 		<div *ngFor="let cat of categories">
-			<div class="categorypanel W1000 FL">
-				<div class="FL Categoryheader" (click)="cat.IsOpend = !cat.IsOpend ">
+			<div class="categorypanel">
+				<div class="Categoryheader" (click)="cat.IsOpend = !cat.IsOpend ">
 					<label>{{cat.CategoryName}}</label>
 				</div>
 				<div class="emptyRow">
 				</div>
-				<div class="FL W100per CategoryBody" *ngIf="cat.IsOpend">
+				<div class="CategoryBody" *ngIf="cat.IsOpend">
 					<div *ngFor="let item of cat.Items"><input  type="checkbox" [checked]="item.ischecked" (change)="item.ischecked = !item.ischecked">{{item.ItemName}}</div>
 					<div *ngIf="cat.Items==null">&nbsp;</div>
 				</div>
